@@ -1,6 +1,6 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
-const schema = require('./schema/5_typeRelation')
+const schema = require('./schema/2_resolveFunc')
 
 const app = express()
 app.use('/graphql', graphqlHTTP({
@@ -16,17 +16,15 @@ app.listen(1234, ()=>{
 // =========================================
 /*
 open localhost:1234/graphql on browser!
-insert on Graphiql :
+you'll see a nice Graphiql editor to test our graphql server
+insert :
 
 {
-	book(id:1){
-    name
-    genre
-    author{
-      name
-      age
+    book(id:"1"){       // must be string with ""
+        name
+        genre
+        id
     }
-  }
 }
 
 then press the play button

@@ -1,6 +1,6 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
-const schema = require('./schema/5_typeRelation')
+const schema = require('./schema/4_authorType')
 
 const app = express()
 app.use('/graphql', graphqlHTTP({
@@ -19,13 +19,9 @@ open localhost:1234/graphql on browser!
 insert on Graphiql :
 
 {
-	book(id:1){
+  author(id:1){
     name
-    genre
-    author{
-      name
-      age
-    }
+    age
   }
 }
 
