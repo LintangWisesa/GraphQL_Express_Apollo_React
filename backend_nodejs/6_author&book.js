@@ -1,6 +1,6 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
-const schema = require('./schema/7_rootQueries')
+const schema = require('./schema/6_graphQLlist')
 
 const app = express()
 app.use('/graphql', graphqlHTTP({
@@ -18,33 +18,13 @@ app.listen(1234, ()=>{
 open localhost:1234/graphql on browser!
 insert on Graphiql :
 
-// show all books data
 {
-  books{
-    name
-    genre
-  }
-}
-
-// show all books data + its author
-{
-  books{
-    name
-    genre
-    author{
-      name
-      age
-    }
-  }
-}
-
-// show all authors + his books
-{
-	authors{
+  author(id: 1){
     name
     age
-    books {
+    books{
       name
+      genre
     }
   }
 }
