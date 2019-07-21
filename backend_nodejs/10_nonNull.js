@@ -1,12 +1,8 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const schema = require('./schema/10_graphQLnonNull')
-const cors = require('cors')
 
 const app = express()
-
-// allow cross origin request
-app.use(cors()) 
 app.use('/graphql', graphqlHTTP({
     // create graphql schema => create /schema/schema.js!
     schema: schema,  // or just type: schema if similar
@@ -28,6 +24,12 @@ mutation {
   }
 }
 
+mutation {
+  addAuthor(){
+    name
+  }
+}
+
 it will give an error, because we dont insert name, genre & authorId!
 
 mutation {
@@ -37,12 +39,27 @@ mutation {
   }
 }
 
+mutation {
+  addAuthor(name:"X", age:22){
+    name
+    age
+  }
+}
+
 then press the play button
 to check the data has been added or not, insert
 
 {
+  books{
+    name
+    genre
+  }
+}
+
+{
   authors{
     name
+    age
   }
 }
 
