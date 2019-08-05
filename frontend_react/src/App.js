@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 // components
 import BookList from './component/BookList'
 // import AuthorList from './component/AuthorList'
+import AddBook from './component/AddBook'
 
 // npm install apollo-boost react-apollo graphql
 // https://www.apollographql.com/docs/react/essentials/get-started/
@@ -23,6 +24,7 @@ class App extends Component{
           <h1>Frontend</h1>
           <BookList/>
           {/* <AuthorList/> */}
+          <AddBook/>
         </div>
       
       </ApolloProvider>
